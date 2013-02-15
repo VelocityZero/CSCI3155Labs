@@ -59,7 +59,7 @@ object Lab2 {
     require(isValue(v))
     (v: @unchecked) match {
       case B(b) => b
-	  case N(n) => if(n == 1) true; else false  
+	  case N(n) => if(n == 1) false; else true  
       case _ => false // need speacial cases to handle undefined. 
     }
   }
@@ -72,17 +72,21 @@ object Lab2 {
 	// catches everything that is a number, bool, or undefined
 	// this is also the base case for the recussive calls
     case _ if (isValue(e)) => e 
-      
+    case Var(x) => eval(env, get(env, x))
+  
       /* Inductive Cases */
 	  case Binary(bop, e1, e2) => {
 		// continue down the parse tree.
-		val a = eval(env, e1)
-		val b = eval(env, e2)
+		lazy val a = eval(env, e1)
+		lazy val b = eval(env, e2)
 		
-		(bop: @unchecked) match {
+		bop match {
 		// ComparisonSpec	
 			case Eq => B(toNumber(a) == toNumber(b))
-			case Ne => B(toNumber(a) != toNumber(b))
+			case Ne => {
+				if(toNumber(a).isNaN && toNumber(b).isNaN) B(false)
+				else B(toNumber(a) != toNumber(b))
+			}
 			case Lt => B(toNumber(a) < toNumber(b))
 			case Le => B(toNumber(a) <= toNumber(b))
 			case Gt => B(toNumber(a) > toNumber(b))
@@ -90,12 +94,21 @@ object Lab2 {
 			
 		// AndOrSpec
 			case And => {
+				/*
 				val andOr = (a, b)
 				val answer = B(toBoolean(andOr._1) && toBoolean(andOr._2))
+				
 				andOr match{
 					case (B(_), B(_)) => answer
 					case _ => N(toNumber(answer))
 				}
+				*/
+				
+				if (toBoolean(a)) {
+					B(toBoolean(b))
+				}
+				else N(toNumber(a))
+				
 			}
 			case Or => {
 				val Or = (a, b)
@@ -105,7 +118,7 @@ object Lab2 {
 					case (N(n), B(b)) => if(b) B(b) else N(n)
 					case _ => answer
 				}
-			}	
+			}
 				
 		// ArithmeticSpec
 			case Plus => N(toNumber(a) + toNumber(b))
@@ -114,29 +127,27 @@ object Lab2 {
 			case Div => N(toNumber(a) / toNumber(b))
 			
 		// SeqSpec
-			case Seq => eval(env, e1); eval(env, e2)
-			
+			case Seq => a; b
 		}
 	}
 	
 	case Unary(uop, e1) => {
 			
 		val a = eval(env, e1)
-		(uop: @unchecked) match {
+		uop match {
 			case Neg => N(-toNumber(a))
 			case Not => B(!toBoolean(a))
 		}
 	}
 	
 	// ConstSpec
-	case Var(x) => eval(env, get(env, x))
 	case ConstDecl(x, e1, e2) => {
 		var env2 = extend(env, x, eval(env, e1))
 		eval(env2, e2)
 	}
 	
 	case If(e1, e2, e3) => {
-		if (toBoolean(e1)) eval(env, e2) else eval(env, e3)
+		if (toBoolean(eval(env, e1))) eval(env, e2) else eval(env, e3)
 	}
 	
       case Print(e1) => println(eval(env, e1)); Undefined
