@@ -103,7 +103,13 @@ object Lab2 {
 					case _ => N(toNumber(answer))
 				}
 				*/
-				
+				val And = (a, b)
+				val answer = B(toBoolean(a) && toBoolean(b))
+				And match{
+					case (N(n), N(x)) => if(n != 0) N(x) else N(0);
+					case (B(b), N(n)) => if (b) N(n) else B(false);
+					case (N(n), B(b)) => if(n != 0) B(b) else N(0);
+					case _ => answer
 				}
 				
 			}
