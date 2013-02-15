@@ -59,7 +59,7 @@ object Lab2 {
     require(isValue(v))
     (v: @unchecked) match {
       case B(b) => b
-	  case N(n) => if(n == 1) false; else true  
+	  case N(n) => if(n == 0) false; else true  
       case _ => false // need speacial cases to handle undefined. 
     }
   }
@@ -104,11 +104,14 @@ object Lab2 {
 				}
 				*/
 				
-				if (toBoolean(a)) {
-					B(toBoolean(b))
+				val And = (a, b)
+				val answer = B(toBoolean(a) && toBoolean(b))
+				And match {
+					case (N(n), N(x)) => if(n != 0) N(x) else N(0)
+					case (B(b), N(n)) => if(b) N(n) else B(false)
+					case (N(n), B(b)) => if(n != 0) B(b) else N(0)
+					case _ => answer
 				}
-				else N(toNumber(a))
-				
 			}
 			case Or => {
 				val Or = (a, b)
@@ -128,6 +131,9 @@ object Lab2 {
 			
 		// SeqSpec
 			case Seq => a; b
+			
+			case _ => throw new UnsupportedOperationException
+
 		}
 	}
 	

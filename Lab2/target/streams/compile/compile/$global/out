@@ -15,7 +15,7 @@
 [0m[[0mdebug[0m] [0mInitially invalidated: Set(/Users/Jacob/CSCI3155Labs/Lab2/src/main/scala/Lab2.scala, /Users/Jacob/CSCI3155Labs/Lab2/src/main/scala/Lab2Main.scala, /Users/Jacob/CSCI3155Labs/Lab2/src/main/scala/jsy/lab2/ast.scala, /Users/Jacob/CSCI3155Labs/Lab2/ast.scala)[0m
 [0m[[0mdebug[0m] [0mRecompiling all 4 sources: invalidated sources (4) exceeded 50.0% of all sources[0m
 [0m[[0minfo[0m] [0mCompiling 4 Scala sources to /Users/Jacob/CSCI3155Labs/Lab2/target/scala-2.9.1/classes...[0m
-[0m[[0mdebug[0m] [0mRunning cached compiler 70e8eeca, interfacing (CompilerInterface) with Scala compiler version 2.9.1.final[0m
+[0m[[0mdebug[0m] [0mRunning cached compiler 3c40f0, interfacing (CompilerInterface) with Scala compiler version 2.9.1.final[0m
 [0m[[0mdebug[0m] [0mCalling Scala compiler with arguments  (CompilerInterface):[0m
 [0m[[0mdebug[0m] [0m	-d[0m
 [0m[[0mdebug[0m] [0m	/Users/Jacob/CSCI3155Labs/Lab2/target/scala-2.9.1/classes[0m
@@ -25,7 +25,7 @@
 [0m[[0mdebug[0m] [0m	/Users/Jacob/CSCI3155Labs/Lab2/target/scala-2.9.1/classes:/Users/Jacob/CSCI3155Labs/Lab2/lib/libLab2.jar[0m
 [0m[[33mwarn[0m] [0mthere were 1 deprecation warnings; re-run with -deprecation for details[0m
 [0m[[33mwarn[0m] [0mone warning found[0m
-[0m[[0mdebug[0m] [0mScala compilation took 14.974665 s[0m
+[0m[[0mdebug[0m] [0mScala compilation took 14.5292 s[0m
 [0m[[0mdebug[0m] [0mStep 2 changed sources and immdediate dependencies:[0m
 [0m[[0mdebug[0m] [0m	Set(/Users/Jacob/CSCI3155Labs/Lab2/src/main/scala/Lab2.scala, /Users/Jacob/CSCI3155Labs/Lab2/src/main/scala/Lab2Main.scala, /Users/Jacob/CSCI3155Labs/Lab2/src/main/scala/jsy/lab2/ast.scala, /Users/Jacob/CSCI3155Labs/Lab2/ast.scala)[0m
 [0m[[0mdebug[0m] [0mNon-trivial strongly connected components: [0m

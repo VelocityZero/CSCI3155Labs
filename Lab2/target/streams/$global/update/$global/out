@@ -241,7 +241,7 @@
 [0m[[0mdebug[0m] [0morg.scala-lang#scala-library;2.9.1 in runtime-internal: excluding org.scala-lang#scala-library;2.9.1!scala-library.jar[0m
 [0m[[0mdebug[0m] [0morg.scala-lang#scala-library;2.9.1 in compile-internal: excluding org.scala-lang#scala-library;2.9.1!scala-library.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scalatest#scalatest_2.9.1;1.6.1!scalatest_2.9.1.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 226ms :: artifacts dl 9ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 236ms :: artifacts dl 12ms[0m
 [0m[[0mdebug[0m] [0mNbr of module to sort : 1[0m
 [0m[[0mdebug[0m] [0mSort dependencies of : org.scala-lang#scala-library;2.9.1 / Number of dependencies = 0[0m
 [0m[[0mdebug[0m] [0mSort done for : org.scala-lang#scala-library;2.9.1[0m
@@ -284,5 +284,5 @@
 [0m[[0mdebug[0m] [0m	report for lab2#lab2_2.9.1;1.0 docs produced in /Users/Jacob/CSCI3155Labs/Lab2/target/resolution-cache/reports/lab2-lab2_2.9.1/docs-resolved.xml[0m
 [0m[[0mdebug[0m] [0mNbr of module to sort : 0[0m
 [0m[[0mdebug[0m] [0m	report for lab2#lab2_2.9.1;1.0 pom produced in /Users/Jacob/CSCI3155Labs/Lab2/target/resolution-cache/reports/lab2-lab2_2.9.1/pom-resolved.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (226ms resolve - 9ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (236ms resolve - 12ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m
