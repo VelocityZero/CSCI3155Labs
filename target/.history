@@ -1,0 +1,5 @@
+sbt compile
+sbt test
+:q
+quit
+exit
