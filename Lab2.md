@@ -3,10 +3,11 @@
 Quesiton 2
 ----------
 a.  
-a ∈ V meaning Syntatic object A is in the set V  
-b ∈ V meaning Syntatic object A is in the set V  
-V ∈ A meaning Syntatic Object a is in the set A  
-A ∈ A meaning Syntatic Object b is in the set A  
+A & A ∈ A meaning Syntatic Object A is in the set A  
+    ----------------------------------------------------------  
+V ∈ A meaning Syntatic Object V is in the set A  
+    ----------------------------------------------------------  
+a, b ∈ V meaning Syntatic object a, b is in the set V  
 
 b.  
 The first line of the grammar,
