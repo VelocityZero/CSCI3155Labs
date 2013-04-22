@@ -229,7 +229,6 @@ ___NOT DONE, STILL A WORK IN PROGRESS!___
 # <a name="otherNotes"></a>Other Notes:
 >Notes for declaring lambda expressions:
 * you can declare a lambda anywhere that your can initialize a variable. 
-* 
 
 > Notes for capturing variables: 
 * The Visual C++ compiler binds a lambda expression to its captured variables when the expression is declared instead of when the expression is called. 
