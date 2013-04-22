@@ -1,22 +1,30 @@
-#Implementing Lambda Functions in C++11
+#Table of Contents
+==================
+* Lambda Functions
+* <a href="#implementing">Implementing Lambda Functions in C++11</a>
+* <a href="#basic">Basic Lambda syntax</a>
+* <a href="#vCapture">Variable Capture</a>
+	* <a href="#STL">Using lambda with the STL</a>
+* <a href="#usingLambda">Putting it all together, Using lambda functions!</a>
+* <a href="#otherNotes">Other Notes</a>
+
+#Lambda Functions
+=================
+Lamda functions are a recent feature in C++11 that allows a programmer a wider rage of methods to appoarch a problem while spending less time implementing particular functions. In summary lambda functions allow you too:
+* Create quick functions that only need to be declared locally. 
+* Pass functions as parameters similarly to [functor](http://www.cprogramming.com/tutorial/functors-function-objects-in-c++.html) and [function pointer](http://www.cprogramming.com/tutorial/function-pointers.html). 
+* Use variables declared within the scope function is declared in.
+* Lambda functions work well with STLs (such as algorithms). 
+
+#<a name="implementing"></a>Implementing Lambda Functions in C++11
 
 * A lambda function is a function that you can write inline in your source code. 
 	* Usually to pass into another function
 	* Similar to the idea of a [functor](http://www.cprogramming.com/tutorial/functors-function-objects-in-c++.html) or a [function pointer](http://www.cprogramming.com/tutorial/function-pointers.html). 
-	
 
-#Lambda Functions
-=================
-Lambda functions are new features in C++11 that allow a programmer to not only program in different ways but also save time when implementing particular functions. In summary lambda functions allow you too: 
-* create quick functions that only need to be declared locally. 
-* pass functions as parameters similarly to function pointers and functors. 
-* use variables declared within the scope function is declared in.
-* Lambda functions work well with STLs (such as algorithms). 
-
-
-## Basic Lambda syntax
+## <a name="basic"></a>Basic Lambda syntax
 Lambda functions have a kinda funny syntax that can look like an array declaration with parameters. 
-
+r
 >`lambda_type lambda_name = [capture_specification] (parameters) -> return_type 
 {body}`
 
@@ -46,7 +54,7 @@ int main(){
 <br />
 <br />
 <br />
-## Variable Capture. 
+## <a name="vCapture"></a>Variable Capture. 
 Variable capture is probally the best things about using lambda functions. Lambda functions have the ability to reference, use and even change variables and declared outside of the scope of a lambda function. This is all done within the capture specification field `[capture_specification]`. 
 
 ~~~~~~
@@ -111,7 +119,7 @@ While all of this seems great you should know when it is okay to capture by diff
 <br />
 <br />
 <br />
-### Using lambda with the STL
+### <a name="STL"></a>Using lambda with the STL
 --
 To use STLs like algorithms was a tedious task before lambda functions. Lets look at `for_each` in the algorithms STL as an example:
 ~~~~~~
@@ -135,7 +143,7 @@ Does this implementation not seem easier? To me it does. And as it would tern ou
 <br />
 <br />
 <br />
-## Putting it all together, Using lambda functions!
+## <a name="usingLambda"></a>Putting it all together, Using lambda functions!
 In  the examples given so far we have given the lambda function a name. This is possible because the lambda expression is typed, which also allows us to assign a lambda to a function object. 
 
 ~~~~~~
@@ -217,7 +225,7 @@ ___NOT DONE, STILL A WORK IN PROGRESS!___
 <br />
 <br />
 
-# other notes:
+# <a name="otherNotes"></a>Other Notes:
 >Notes for declaring lambda expressions:
 * you can declare a lambda anywhere that your can initialize a variable. 
 * 
