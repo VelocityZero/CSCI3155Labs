@@ -1,4 +1,3 @@
-
 <img src="http://i.imgur.com/tO9ugC3.png"></img>
 
 #Table of Contents
@@ -23,10 +22,6 @@ Lamda functions are a recent feature in C++11 that allows a programmer a wider r
 
 
 ## <a name="basic"></a>Basic Lambda syntax
-Lambda functions have a kinda funny syntax that can look similar to an array declaration with parameters. <a name="declaration"></a>
-=======
-
-## Basic Lambda syntax
 Lambda functions have a kinda funny syntax that can look like an array declaration with parameters. 
 
 
