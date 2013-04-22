@@ -1,26 +1,19 @@
 #Table of Contents
 ==================
-* Lambda Functions
-* <a href="#implementing">Implementing Lambda Functions in C++11</a>
+* <a href="#summary">Lambda Functions</a>
 * <a href="#basic">Basic Lambda syntax</a>
 * <a href="#vCapture">Variable Capture</a>
 	* <a href="#STL">Using lambda with the STL</a>
 * <a href="#usingLambda">Putting it all together, Using lambda functions!</a>
 * <a href="#otherNotes">Other Notes</a>
 
-#Lambda Functions
+#<a name="summary"></a>Lambda Functions
 =================
 Lamda functions are a recent feature in C++11 that allows a programmer a wider rage of methods to appoarch a problem while spending less time implementing particular functions. In summary lambda functions allow you too:
 * Create quick functions that only need to be declared locally. 
 * Pass functions as parameters similarly to [functor](http://www.cprogramming.com/tutorial/functors-function-objects-in-c++.html) and [function pointer](http://www.cprogramming.com/tutorial/function-pointers.html). 
 * Use variables declared within the scope function is declared in.
 * Lambda functions work well with STLs (such as algorithms). 
-
-#<a name="implementing"></a>Implementing Lambda Functions in C++11
-
-* A lambda function is a function that you can write inline in your source code. 
-	* Usually to pass into another function
-	* Similar to the idea of a [functor](http://www.cprogramming.com/tutorial/functors-function-objects-in-c++.html) or a [function pointer](http://www.cprogramming.com/tutorial/function-pointers.html). 
 
 ## <a name="basic"></a>Basic Lambda syntax
 Lambda functions have a kinda funny syntax that can look like an array declaration with parameters. 
