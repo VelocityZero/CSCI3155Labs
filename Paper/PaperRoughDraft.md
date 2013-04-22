@@ -1,3 +1,5 @@
+<img src="http://i.imgur.com/tO9ugC3.png"></img>
+
 #Table of Contents
 ==================
 * <a href="#summary">Lambda Functions</a>
@@ -9,24 +11,23 @@
 
 #<a name="summary"></a>Lambda Functions
 =================
-Lambda functions are a recent feature in C++11 that allows a programmer a wider rage of methods to approach a problem while spending less time implementing particular functions. In summary lambda functions allow you too:
+Lamda functions are a recent feature in C++11 that allows a programmer a wider rage of methods to appoarch a problem while spending less time implementing particular function. In summary lambda functions allow you too:
 * Create quick functions that only need to be declared locally. 
 * Pass functions as parameters similarly to [functor](http://www.cprogramming.com/tutorial/functors-function-objects-in-c++.html) and [function pointer](http://www.cprogramming.com/tutorial/function-pointers.html). 
 * Use variables declared within the scope function is declared in.
 * Lambda functions work well with STLs (such as algorithms). 
 
 ## <a name="basic"></a>Basic Lambda syntax
-Lambda functions have a kinda funny syntax that can look like an array declaration with parameters. 
-
+Lambda functions have a kinda funny syntax that can look similar to an array declaration with parameters. <a name="declaration"></a>
 >`lambda_type lambda_name = [capture_specification] (parameters) -> return_type 
 {body}`
 
 There are a few important things to remember about the declaration of lambda.
-* lambda functions can be nameless. This allows lambda functions to be used once in a specific way. 
+* Lambda functions can be nameless. This allows lambda functions to be used once in a specific way. 
 * The capture specification can be empty ___(more on this later)___ 
 * There does not have to be a parameters field or a return type
 	* You can only exclude a return type if the compiler is unable to deduce the return type. 
-	* The default return type of lambda functions is void. 
+	* The default return type of lambda function is void. 
 
 For example here is the well know HelloWorld function written as a lambda function. 
 
@@ -43,15 +44,15 @@ int main(){
 	return 0;
 }
 ~~~~~	
-
+<a href="#TOP">↑ Top</a>
 <br />
 <br />
 <br />
 ## <a name="vCapture"></a>Variable Capture. 
-Variable capture is probably the best things about using lambda functions. Lambda functions have the ability to reference, use and even change variables and declared outside of the scope of a lambda function. This is all done within the capture specification field `[capture_specification]`. 
+Variable capture is probably the best things about using lambda functions. Lambda functions have the ability to reference, use and even change variables and declared outside of the scope of a lambda function. This is all done within the capture specification field `[capture_specification],`defined in the <a href="#declaration">lambda declaration</a>
 
 ~~~~~~
-#include <iostream>
+#inlcude <iostream>
 using namespace std;
 
 int main(){
@@ -61,7 +62,7 @@ int main(){
 	cin >> input;
 	
 	auto lambda_isNeg = [input] {
-	return input < 0 ? "negative" : "positive
+	return input < 0 ? "negative" : "positive"
 	}
 	
 	cout << "you entered a " << lambda_isNeg << "number" << endl; 
@@ -70,10 +71,10 @@ int main(){
 }
 ~~~~~~
 The above example show how you can capture a variable using a lambda function. In the example only `input` is captured by value; however, you do not need to give a list of variables you want to capture. Instead you can capture in the following ways: 
-* `[=]` capture all variables declared before the lambda function. (check [this](https://ideone.com/Ly38P) out for an example)
-* `[&]` similar to `=` only instead you capture all values by reference. 
-* `[variable_name]` like the above example, individual variables may be captured using their name.
-* `[]` is the default capture method that will capture all variables as const.
+* `[=]` Capture all variables declared before the lambda function. (check [this](https://ideone.com/Ly38P) out for an example)
+* `[&]` Similar to `=` only instead you capture all values by reference. 
+* `[variable_name]` Like the above example, individual variables may be captured using their name.
+* `[]` Is the default capture method that will capture all variables as const.
 	* You can also mix and match the above three ways using commas to separate different capture types. 
 	
 	~~~~~~
@@ -103,11 +104,10 @@ The above example show how you can capture a variable using a lambda function. I
 
 <br />
 #####But how do lambda captures work?
-Well as it terns out lambdas variable capture works in the same way as a functor. The way that lambdas are implemented is by creating a small class the overloads the operator`()`, this allows lambda to act like a function. The lambda function then becomes an instance of this class and when it is constructed it takes in all surrounding variables within its environment that are passed into the capture specification field and stores them as member variables. ___(this may need to me moved or reworded!)___
+Well as it turns out lambdas variable capture works in the same way as a functor. The way that lambdas are implemented is by creating a small class that overloads the operator`()`, this allows lambda to act like a function. The lambda function then becomes an instance of this class and when it is constructed it takes in all surrounding variables within its environment that are passed into the capture specification field and stores them as member variables. ___(this may need to me moved or reworded!)___
 
 ##### Tread carefully, the pros and cons to `[&]`
 While all of this seems great you should know when it is okay to capture by different types. For example if you have a lambda function as a function parameter. If a lambda function captures values by reference, the reference will not be valid after the function returns. However, if you capture by reference you have to ability to modify and change the data. 
-
 
 <br />
 <br />
@@ -130,7 +130,8 @@ for (auto itr = v.begin(), end = v.end(); itr != end; ++itr){
 for_each(v.begin(), v.end(), [] (int val) {cout << val}); 	
 ~~~~~~
 Does this implementation not seem easier? To me it does. And as it would tern out, the for_each implementation performs at the same speed or even faster than the for expression because to can easily utilize loop unrolling. 
-
+  
+<a href="#TOP">↑ Top</a>
 
 
 <br />
@@ -196,7 +197,7 @@ int main()
    cout << a << endl;
 }
 ~~~~~
-
+<a href="#TOP">↑ Top</a>
 
 
 
@@ -232,8 +233,7 @@ ___NOT DONE, STILL A WORK IN PROGRESS!___
 > Notes for using lambda
 * `[] (int x, int y) {}returns x + y}(5, 4)` will have x = 5 and y = 4 (possibly only when compile with /EHsc). loop at [this](http://msdn.microsoft.com/en-us/library/dd293599.aspx).
 	
-[source](http://msdn.microsoft.com/en-us/library/dd293599.aspx)
-
+[source](http://msdn.microsoft.com/en-us/library/dd293599.aspx)  
 <br />
 <br />
 <br />
@@ -250,3 +250,4 @@ ___NOT DONE, STILL A WORK IN PROGRESS!___
 <br />
 <br />
 <br />
+<a href="#TOP">↑ Top</a>
