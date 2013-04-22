@@ -9,7 +9,7 @@
 
 #<a name="summary"></a>Lambda Functions
 =================
-Lamda functions are a recent feature in C++11 that allows a programmer a wider rage of methods to appoarch a problem while spending less time implementing particular functions. In summary lambda functions allow you too:
+Lambda functions are a recent feature in C++11 that allows a programmer a wider rage of methods to approach a problem while spending less time implementing particular functions. In summary lambda functions allow you too:
 * Create quick functions that only need to be declared locally. 
 * Pass functions as parameters similarly to [functor](http://www.cprogramming.com/tutorial/functors-function-objects-in-c++.html) and [function pointer](http://www.cprogramming.com/tutorial/function-pointers.html). 
 * Use variables declared within the scope function is declared in.
@@ -17,7 +17,7 @@ Lamda functions are a recent feature in C++11 that allows a programmer a wider r
 
 ## <a name="basic"></a>Basic Lambda syntax
 Lambda functions have a kinda funny syntax that can look like an array declaration with parameters. 
-r
+
 >`lambda_type lambda_name = [capture_specification] (parameters) -> return_type 
 {body}`
 
@@ -48,10 +48,10 @@ int main(){
 <br />
 <br />
 ## <a name="vCapture"></a>Variable Capture. 
-Variable capture is probally the best things about using lambda functions. Lambda functions have the ability to reference, use and even change variables and declared outside of the scope of a lambda function. This is all done within the capture specification field `[capture_specification]`. 
+Variable capture is probably the best things about using lambda functions. Lambda functions have the ability to reference, use and even change variables and declared outside of the scope of a lambda function. This is all done within the capture specification field `[capture_specification]`. 
 
 ~~~~~~
-#inlcude <iostream>
+#include <iostream>
 using namespace std;
 
 int main(){
