@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <img src="http://i.imgur.com/tO9ugC3.png"></img>
 
 #Table of Contents
@@ -13,8 +13,7 @@
 #<a name="summary"></a>Lambda Functions
 =======
 
-#Lambda Functions
->>>>>>> jacob
+
 =================
 Lamda functions are a recent feature in C++11 that allows a programmer a wider rage of methods to appoarch a problem while spending less time implementing particular function. In summary lambda functions allow you too:
 * Create quick functions that only need to be declared locally. 
@@ -22,7 +21,7 @@ Lamda functions are a recent feature in C++11 that allows a programmer a wider r
 * Use variables declared within the scope function is declared in.
 * Lambda functions work well with STLs (such as algorithms). 
 
-<<<<<<< HEAD
+
 ## <a name="basic"></a>Basic Lambda syntax
 Lambda functions have a kinda funny syntax that can look similar to an array declaration with parameters. <a name="declaration"></a>
 =======
@@ -31,7 +30,7 @@ Lambda functions have a kinda funny syntax that can look similar to an array dec
 Lambda functions have a kinda funny syntax that can look like an array declaration with parameters. 
 
 
->>>>>>> jacob
+
 >`lambda_type lambda_name = [capture_specification] (parameters) -> return_type 
 {body}`
 
