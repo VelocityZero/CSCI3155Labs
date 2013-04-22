@@ -3,7 +3,6 @@
 * A lambda function is a function that you can write inline in your source code. 
 	* Usually to pass into another function
 	* Similar to the idea of a [functor](http://www.cprogramming.com/tutorial/functors-function-objects-in-c++.html) or a [function pointer](http://www.cprogramming.com/tutorial/function-pointers.html). 
-
 	
 
 #Lambda Functions
