@@ -33,8 +33,8 @@ There are a few important things to remember about the declaration of lambda.
 * Lambda functions can be nameless. This allows lambda functions to be used once in a specific way. 
 * The capture specification can be empty ___(more on this later)___ 
 * There does not have to be a parameters field or a return type
-	* You can only exclude a return type if the compiler is unable to deduce the return type. 
-	* The default return type of lambda function is void. 
+	* You can only include a return type if the compiler is unable to deduce the return type. 
+	* The default return type of a lambda function is void. 
 
 For example here is the well know HelloWorld function written as a lambda function. 
 
@@ -61,7 +61,7 @@ Variable capture is probably the best things about using lambda functions. Lambd
 Variable capture is one of the things that makes lambda functions so incredibly flexible. Lambda functions have the ability to copy, reference, or even modify variables declared outside of the scope of a lambda function. The method in which these variables are captured is determined by the capture specification field `[capture_specification],`defined in the <a href="#declaration">lambda declaration</a>
 
 ~~~~~~
-#inlcude <iostream>
+#include <iostream>
 using namespace std;
 
 int main(){
