@@ -14,7 +14,7 @@
 
 
 =================
-Lamda functions are a recent feature in C++11 that allows a programmer a wider rage of methods to appoarch a problem while spending less time implementing particular function. In summary lambda functions allow you too:
+Lambda functions are a very useful tool when attempting to create higher order functions. C++11 implemented them and provide a wider range of methods to approach various problems. In summary, lambda functions all you too:
 * Create quick functions that only need to be declared locally. 
 * Pass functions as parameters similarly to [functor](http://www.cprogramming.com/tutorial/functors-function-objects-in-c++.html) and [function pointer](http://www.cprogramming.com/tutorial/function-pointers.html). 
 * Use variables declared within the scope function is declared in.
