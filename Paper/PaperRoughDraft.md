@@ -58,6 +58,8 @@ int main(){
 ## <a name="vCapture"></a>Variable Capture. 
 Variable capture is probably the best things about using lambda functions. Lambda functions have the ability to reference, use and even change variables and declared outside of the scope of a lambda function. This is all done within the capture specification field `[capture_specification],`defined in the <a href="#declaration">lambda declaration</a>
 
+Variable capture is one of the things that makes lambda functions so incredibly flexible. Lambda functions have the ability to copy, reference, or even modify variables declared outside of the scope of a lambda function. The method in which these variables are captured is determined by the capture specification field `[capture_specification],`defined in the <a href="#declaration">lambda declaration</a>
+
 ~~~~~~
 #inlcude <iostream>
 using namespace std;
