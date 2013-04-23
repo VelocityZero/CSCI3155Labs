@@ -22,7 +22,7 @@ Lambda functions are a very useful tool when attempting to create higher order f
 
 
 ## <a name="basic"></a>Basic Lambda syntax
-Lambda functions have a kinda funny syntax that can look like an array declaration with parameters. 
+Lambda functions have a rather unique syntax, which at first glance can be confused with an array declaration with parameters. This is the general form for writing lambda functions:
 
 
 
