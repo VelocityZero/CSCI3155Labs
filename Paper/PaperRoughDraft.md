@@ -33,7 +33,8 @@ There are a few important things to remember about the declaration of lambda.
 * Lambda functions can be nameless. This allows lambda functions to be used once in a specific way. 
 * The capture specification can be empty ___(more on this later)___ 
 * There does not have to be a parameters field or a return type
-	* You can only include a return type if the compiler is unable to deduce the return type. 
+	* You can only inu
+	clude a return type if the compiler is unable to deduce the return type. 
 	* The default return type of a lambda function is void. 
 
 For example here is the well know HelloWorld function written as a lambda function. 
@@ -116,7 +117,9 @@ The above example show how you can capture a variable using a lambda function. I
 Well as it turns out lambdas variable capture works in the same way as a functor. The way that lambdas are implemented is by creating a small class that overloads the operator`()`, this allows lambda to act like a function. The lambda function then becomes an instance of this class and when it is constructed it takes in all surrounding variables within its environment that are passed into the capture specification field and stores them as member variables. ___(this may need to me moved or reworded!)___
 
 ##### Tread carefully, the pros and cons to `[&]`
-While all of this seems great you should know when it is okay to capture by different types. For example if you have a lambda function as a function parameter. If a lambda function captures values by reference, the reference will not be valid after the function returns. However, if you capture by reference you have to ability to modify and change the data. 
+While all of this seems great you should know when it is okay to capture by different types. For example, if you have a lambda function as a function parameter. Lambda functions which capture values by reference have the ability to change the captured references and have the changes affect all of the same references. Passing by reference will most likely be the fastest (particularly for large objects), but you must watch out for side-effects inside the lambda functions.
+
+If a lambda function captures values by reference, the reference will not be valid after the function returns. However, if you capture by reference you have to ability to modify and change the data. 
 
 <br />
 <br />
