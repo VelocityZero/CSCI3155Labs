@@ -213,8 +213,13 @@ int main()
 
 
 
+Notes: 
+* `auto g = [](int x) -> function<int (int)> {return [=](int y) (return x + y;};};};` is a function that creates other functions. If you have `auto func1 = g(10);`, `func1` will be a function pointer to a function `func(int y) {return 10 + y;}`
+* `h` is a higher order function that calls `g` and adds one. 
+* `a` stores the result of `h`.
 
 ___NOT DONE, STILL A WORK IN PROGRESS!___
+
 <br />
 <br />
 <br />
