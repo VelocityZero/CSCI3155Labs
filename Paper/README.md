@@ -1,3 +1,7 @@
+# Notes for the paper:
+======================
+* in order to compile C++11 and use std::function, you need to include: `clang++ -std=c++11 -stdlib=libc++`
+
 
 Introduction
 ============
