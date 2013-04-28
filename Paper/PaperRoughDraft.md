@@ -33,8 +33,7 @@ There are a few important things to remember about the declaration of lambda.
 * Lambda functions can be nameless. This allows lambda functions to be used once in a specific way. 
 * The capture specification can be empty ___(more on this later)___ 
 * There does not have to be a parameters field or a return type
-	* You can only inu
-	clude a return type if the compiler is unable to deduce the return type. 
+	* You can only include a return type if the compiler is unable to deduce the return type. 
 	* The default return type of a lambda function is void. 
 
 For example here is the well know HelloWorld function written as a lambda function. 
@@ -220,7 +219,21 @@ Notes:
 
 ___NOT DONE, STILL A WORK IN PROGRESS!___
 
-The ea
+__NEED SOURCE FOR THIS!__
+In order to use lambda functions as higher order functions, you will most likely have to use `std::function`. `std::function` allows us to pass in lambda functions, function pointers, and function objects as function arguments,  `std::function` will sort everything out!
+
+> Part of the reason that I used `std::function` in the examples was because I do not know now to specify a lambda function as an argument to another function. 
+
+> <br />
+
+> Basic form of `std::function`
+
+> `function<function_type(param1_type, . . ., paramN_type)> func_name = some_func`
+
+However, because you can use lambda functions with `std::function`, you are not limited to using just lambdas as higher order functions.
+
+
+
 
 
 
