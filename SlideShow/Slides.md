@@ -11,11 +11,20 @@
 
 ---
 
-## Why Lambdas Rock
+## Response to Lambda
 
-> I've started using lambda functions in production code, and they are starting to show up all over the place--in some cases shortening code, in some cases improving unit tests, and in some cases replacing what could previously have only been accomplished with macros. - Alex Allain
+> I've started using lambda functions in production code ... shortening code... improving unit tests... replacing what could previously have only been accomplished with macros. - Alex Allain
 
 http://www.cprogramming.com/c++11/c++11-lambda-closures.html
+
+---
+
+## Life Before Lambda in C++
+![Before Lambda](http://i.imgur.com/IcV3KuN.png)
+
+---
+
+## Life With Lambda
 
 ---
 
