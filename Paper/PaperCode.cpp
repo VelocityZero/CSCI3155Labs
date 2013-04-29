@@ -172,7 +172,28 @@ int main(){
     int numb3 = 4;
     auto fun4 = [=] {return 2*3;};
     auto fun5 = [=] {return fun4() + numb3;};
-    cout << "fun5 produces: " << fun5();
+    cout << "\nfun5 produces: " << fun5();
+
+
+
+
+// 
+
+    int ary [5][5];
+
+    int numb10 = 0;
+    for (int i = 0; i < 5; ++i)
+    {
+        for (int j = 0; j < 5; ++j)
+        {
+            ary[i][j] = numb10++;
+        }
+    }
+
+    cout << endl << endl;
+    cout << "you no longer have to worry about loop unrolling and traversing 2d " << endl
+         <<  "arrays in the proper order. for_each can do it all easily with lambdas!\n";
+    for_each(&ary[0][0], &ary[5][0], [] (int val) {cout << val << " ";});
 
     return 0;
 }
