@@ -3,8 +3,17 @@
 #include <iostream>
 #include <algorithm>
 #include <vector> 
+#include <typeinfo>
 
 using namespace std;
+
+enum Type 
+{
+    INT,
+    FLOAT,
+    STRING,
+};
+
 
 void plusplus(int x) {cout << x + x;} 
 
@@ -24,6 +33,7 @@ vector<int> fibArith(int fibNumb, char symbol, int y){
                 case '*': return x*y;   break;
                 case '/': return x/y;   break;
                 case '%': return x%y;   break;
+                case '^': return x^y;   break;
                 default:  return x;     break; 
             }
         }
@@ -139,6 +149,30 @@ int main(){
     cout << "\nMod:\t\t  ";
     for_each(vMod.begin(), vMod.end(), [] (int val) {cout << val << " ";});
     cout << endl;
+
+
+    cout << "---------------" << endl << endl;
+
+
+    auto fun2 = [] (int x) {return ++x;};
+    
+    // must declare the lambda name before it is implemented in order to use 
+    // lambda functions recursively.  
+    // You must also capture the lambda name by reference. 
+    function<int (int)> fun1;
+    fun1 = [&fun1] (int x) {return x > 10 ? x : fun1(++x);};
+    
+    auto fun3 =  fun1(2);
+    cout << "fun3 is: " << fun3;
+
+
+    // capture functions:
+    int numb1 = 2;
+    int numb2 = 3;
+    int numb3 = 4;
+    auto fun4 = [=] {return 2*3;};
+    auto fun5 = [=] {return fun4() + numb3;};
+    cout << "fun5 produces: " << fun5();
 
     return 0;
 }

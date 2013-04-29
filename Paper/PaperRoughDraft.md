@@ -178,8 +178,7 @@ In the above example the first lambda `int m = [](int x)`is declared directly af
 
 
 ######Lambda in a Higher-Order
-Lambda functions that take another lambda function as a parameters and returns a lambda function. 
-___this needs to be explained___ from [here](http://msdn.microsoft.com/en-us/library/dd293599.aspx).
+Lambda functions can take another lambda function as a parameters and even return lambda functions. [source](http://msdn.microsoft.com/en-us/library/dd293599.aspx)
 ~~~~~
 #include <iostream>
 #include <functional>
@@ -211,26 +210,34 @@ int main()
 <a href="#TOP">↑ Top</a>
 
 
-
 Notes: 
 * `auto g = [](int x) -> function<int (int)> {return [=](int y) (return x + y;};};};` is a function that creates other functions. If you have `auto func1 = g(10);`, `func1` will be a function pointer to a function `func(int y) {return 10 + y;}`
 * `h` is a higher order function that calls `g` and adds one. 
 * `a` stores the result of `h`.
 
-___NOT DONE, STILL A WORK IN PROGRESS!___
+<br />
 
-__NEED SOURCE FOR THIS!__
-In order to use lambda functions as higher order functions, you will most likely have to use `std::function`. `std::function` allows us to pass in lambda functions, function pointers, and function objects as function arguments,  `std::function` will sort everything out!
 
-> Part of the reason that I used `std::function` in the examples was because I do not know now to specify a lambda function as an argument to another function. 
 
-> <br />
+There are two ways to use lambdas as higher order functions. 
 
-> Basic form of `std::function`
+1. __Use functions as arguments:__ As seen in the example above, it is possible to use the `std::function` to use functions as lambda parameters. This allows you to pass in a function and use it within the lambda function.
+2. __Capturing functions:__ You can also capture functions by value or by reference. You can capture functions the same way as values and then use them as if they where declared within the lambda function itself. 
+	* ___NOTE:___ _the rules for capturing still apply when you are capturing functions!_
+	* ___NOTE:___ _If you wish to use lambda functions recursively you_ ___must___ _capture the function name by reference, and declare the lambda name before implement it._
+		
+		~~~~~~
+...
+function<int (int)> fun1;		// declaration
+fun1 = [&fun1] (int x) {		// implementation
+	return x > 10 ? x : fun1(++x);
+}; 
+auto fun2 =  fun1(2);			// call the lambda function
+cout << "fun2 is: " << fun3;	// outputs 11
+...
+		~~~~~~
 
-> `function<function_type(param1_type, . . ., paramN_type)> func_name = some_func`
 
-However, because you can use lambda functions with `std::function`, you are not limited to using just lambdas as higher order functions.
 
 
 
@@ -253,30 +260,8 @@ However, because you can use lambda functions with `std::function`, you are not 
 <br />
 <br />
 <br />
-
-# <a name="otherNotes"></a>Other Notes:
->Notes for declaring lambda expressions:
-* you can declare a lambda anywhere that your can initialize a variable. 
-
-> Notes for capturing variables: 
-* The Visual C++ compiler binds a lambda expression to its captured variables when the expression is declared instead of when the expression is called. 
-* __Reassignment of Captured Variables__:
-	* if a variable is captured by `[=]`, then any reassignment of that variable will not effect lambda, meaning that it will use the value before the reassignment of the variable will be used by lambda because lambda makes a copy of the variable at the time of its declaration. 
-	* for `[&]`, you are passing by reference and because of that if you reassign the variable the newest value will be used in the lambda expression. 
-	
-> Notes for using lambda
-* `[] (int x, int y) {}returns x + y}(5, 4)` will have x = 5 and y = 4 (possibly only when compile with /EHsc). loop at [this](http://msdn.microsoft.com/en-us/library/dd293599.aspx).
 	
 [source](http://msdn.microsoft.com/en-us/library/dd293599.aspx)  
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
 <br />
 <br />
 <br />
