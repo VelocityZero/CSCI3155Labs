@@ -1,6 +1,6 @@
 ## Lambda C++ 11
 
-![Lambda](http://i.imgur.com/tO9ugC3.png) 
+![](Images/HalfLife.png) 
 
 ###Why Lamda?
 
@@ -13,21 +13,16 @@
 
 ## Response to Lambda
 
-> I've started using lambda functions in production code ... shortening code... improving unit tests... replacing what could previously have only been accomplished with macros. - Alex Allain
+> I've started using lambda functions in production code ... shortening code... improving unit tests... replacing what could previously have only been accomplished with macros. [^4]
 
-http://www.cprogramming.com/c++11/c++11-lambda-closures.html
 
 ---
 
 ## Life Before Lambda in C++
-![Before Lambda](http://i.imgur.com/IcV3KuN.png)
+![](Images/Venus.png)
 
 * Functors and similar operations cumbersome to use 
-* Overkill to declare and only use a function once
-
-> Flexo, Stack Overflow  
-
-http://stackoverflow.com/questions/7627098/what-is-a-lambda-expression-in-c11
+* Overkill to declare and only use a function once [^1]
 
 ---
 
@@ -38,21 +33,17 @@ http://stackoverflow.com/questions/7627098/what-is-a-lambda-expression-in-c11
 
 namespace {
   struct f {
-    void operator()(int) {
-      // do something
-    }
-  };
+	void operator()(int) {
+	  // do something
+	}
+  };    
 }
-
+    
 void func(std::vector<int>& v) {
   f f;
   std::for_each(v.begin(), v.end(), f);
 }
 ~~~~~
-
-> Flexo, Stack Overflow  
-
-http://stackoverflow.com/questions/7627098/what-is-a-lambda-expression-in-c11
 
 ---
 
@@ -71,57 +62,46 @@ void func2(std::vector<int>& v) {
 }
 ~~~~~
 
-But it doesn't work
-
-> Flexo, Stack Overflow  
-
-http://stackoverflow.com/questions/7627098/what-is-a-lambda-expression-in-c11
+However, f cannot be passed to a template function. [^1]
 
 ---
 
 ## Life With Lambda
 
-> Use of lambdas: For ages, people have complained about having to write functions or (better) function objects for use as operations, such as Cmp<T> above, for standard library (and other) algorithms. This was especially painful to do if you wrote large functions (don't) because in C++98 you could not define a local function object to use as an argument; now you can. However, lambdas allows us to define operations ``inline:'' - Bjarne Stroustrup
+> Use of lambdas: For ages, people have complained about having to write functions or (better) function objects for use as operations, such as Cmp<T> above, for standard library (and other) algorithms. This was especially painful to do if you wrote large functions (don't) because in C++98 you could not define a local function object to use as an argument; now you can. However, lambdas allows us to define operations ``inline:'' - Bjarne Stroustrup [^2]
 
-http://www.stroustrup.com/C++11FAQ.html#lambda
 
 ---
 
 ## Life With Lambda Example
 
+Here is the previous example, resolved cleanly and effectively[^1] thanks to the use of a lambda function.
+
 ~~~
 void func3(std::vector<int>& v) {
-  std::for_each(v.begin(), v.end(), [](int) { /* do something here*/ });
+  std::for_each(v.begin(), v.end(),
+		[](int) { /* do something here*/ });
 }
 ~~~
-
-> Flexo, Stack Overflow
-
-http://stackoverflow.com/questions/7627098/what-is-a-lambda-expression-in-c11
 
 ---
 
 ## The Community responds
 
-> is it just a neat development perk open for abuse by poor coders trying to look cool? - LoudNPossiblyWrong  
-
-
-> IMO, the most important thing about lambda's is it keeps related code close together. - R Samuel Klatchko  
-
-
 > Lambdas are syntactic sugar for functor classes ...  it aids in the readability of code (having your functor declared inline where it is used). - Terry Mahaffey  
 
+> [In my opinion], the most important thing about lambda's is it keeps related code close together. - R Samuel Klatchko  
 
 > There's no performance benefit per se, but the need for lambda came as a consequence of the wide adoption of the STL and its design ideas. - Fabio Ceconello  
 
+> ... is it just a neat development perk open for abuse by poor coders trying to look cool? - LoudNPossiblyWrong  
 
 ---
 
-## Varible Capture
+## Variable Capture
 
-> They can capture contexts, and they do so by name and then they can take those contexts elsewhere and execute. - Cubbi
+> They can capture contexts, and they do so by name and then they can take those contexts elsewhere and execute.[^3]
 
-http://stackoverflow.com/questions/3018626/what-is-the-motivation-behind-c11-lambda-expressions
 
 * [=] Capture all variables declared before the lambda function
 * [&] Capture all values by reference.
@@ -130,15 +110,14 @@ http://stackoverflow.com/questions/3018626/what-is-the-motivation-behind-c11-lam
 
 ---
 
-## Varible Capture Example
+## Variable Capture Example
 
 ~~~
 #include <iostream>
 using namespace std;
 
-int main(){
+int main() {
     string input; 
-
     cout << "enter a number: ";
     cin >> input;
 
@@ -147,7 +126,6 @@ int main(){
     }
 
     cout << "you entered a " << lambda_isNeg << "number" << endl; 
-
     return 0;
 }
 ~~~
@@ -182,3 +160,15 @@ int main()
     func(); // now call the function
 }
 ~~~~~
+
+
+[^1]: > ~Stack\ Overflow\ Moderator,\ Flexo~
+	~http://stackoverflow.com/questions/7627098/what-is-a-lambda-expression-in-c11~
+
+[^2]: > ~http://www.stroustrup.com/C++11FAQ.html#lambda~
+
+[^3]: > ~Cubbi~
+	~http://stackoverflow.com/questions/3018626/what-is-the-motivation-behind-c11-lambda-expressions~
+
+[^4]: > ~Alex\ Allain~					
+	~http://www.cprogramming.com/c++11/c++11-lambda-closures.html~
