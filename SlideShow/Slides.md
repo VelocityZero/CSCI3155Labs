@@ -11,4 +11,12 @@
 
 ---
 
-## Why Lambda
+## Lambda syntax
+
+~~~~~
+lambda_type lambda_name = [capture_specification] (parameters) -> return_type {body}
+~~~~~
+
+* Lambda name and capture specification field can be left empty
+* Parameters and return type are not necessary in most cases
+  * Note some compilers require a return type
