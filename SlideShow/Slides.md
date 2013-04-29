@@ -22,6 +22,35 @@ http://www.cprogramming.com/c++11/c++11-lambda-closures.html
 ## Life Before Lambda in C++
 ![Before Lambda](http://i.imgur.com/IcV3KuN.png)
 
+* Functors and similar operations cumbersome to use 
+* Overkill to declare and only use a function once
+
+> Flexo, Stack Overflow  
+
+---
+
+~~~~~
+## Life Before Lambda Example
+
+#include <algorithm>
+#include <vector>
+
+namespace {
+  struct f {
+    void operator()(int) {
+      // do something
+    }
+  };
+}
+
+void func(std::vector<int>& v) {
+  f f;
+  std::for_each(v.begin(), v.end(), f);
+}
+~~~~~
+
+> Flexo, Stack Overflow  
+
 ---
 
 ## Life With Lambda
