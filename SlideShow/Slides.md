@@ -19,4 +19,25 @@ lambda_type lambda_name = [capture_specification] (parameters) -> return_type {b
 
 * Lambda name and capture specification field can be left empty
 * Parameters and return type are not necessary in most cases
-  * Note some compilers require a return type
+  * Some compilers require a return type
+  * Other compilers will default to void
+
+---
+
+## Lambda syntax
+
+### Example:
+
+~~~~~
+#include
+using namespace std;
+
+int main(){
+    auto func = [] {cout << "Hello, World!";};
+
+    // call func();
+    func();
+
+    return 0;
+}
+~~~~~
