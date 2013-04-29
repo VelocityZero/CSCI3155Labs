@@ -29,9 +29,8 @@ http://www.cprogramming.com/c++11/c++11-lambda-closures.html
 
 ---
 
-~~~~~
 ## Life Before Lambda Example
-
+~~~~~
 #include <algorithm>
 #include <vector>
 
@@ -54,6 +53,10 @@ void func(std::vector<int>& v) {
 ---
 
 ## Life With Lambda
+
+> Use of lambdas: For ages, people have complained about having to write functions or (better) function objects for use as operations, such as Cmp<T> above, for standard library (and other) algorithms. This was especially painful to do if you wrote large functions (don't) because in C++98 you could not define a local function object to use as an argument; now you can. However, lambdas allows us to define operations ``inline:'' - Bjarne Stroustrup
+
+http://www.stroustrup.com/C++11FAQ.html#lambda
 
 ---
 
