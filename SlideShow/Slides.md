@@ -145,13 +145,18 @@ int main() {
 ## Lambda syntax
 
 ~~~~~
-lambda_type lambda_name = [capture_specification] (parameters) -> return_type {body}
+
+lambda_type my_func =
+	[capture_specification] (parameters) -> 
+		return_type {function_body}
+
 ~~~~~
 
-* Lambda name and capture specification field can be left empty
-* Parameters and return type are not necessary in most cases
-  * Some compilers require a return type
-  * Other compilers will default to void
+* The function name is not required, in the case of anonymous functions.
+* The capture specification field can be left empty if desired.
+* Parameters and return type are not necessary in most cases:
+	(1) Some compilers require a return type.
+	(2) Other compilers will default to void.
 
 ---
 
