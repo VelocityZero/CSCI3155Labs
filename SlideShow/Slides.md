@@ -103,10 +103,20 @@ void func3(std::vector<int>& v) {
 > They can capture contexts, and they do so by name and then they can take those contexts elsewhere and execute.[^3]
 
 
-* [=] Capture all variables declared before the lambda function
-* [&] Capture all values by reference.
-* [variable_name] Capture individual variables by name
-* [] Capture all variables as const.
+* [=] Set default capture mode to capture by value.
+	
+	(Data duplicated/Copy constructor invoked)
+* [&] Set default capture mode to capture by reference. 
+	
+	(No data duplication, function side-effects can persist)
+* [variable_name] Capture individual variables.
+
+	(In this case, by value)
+* [&variable_name] Same as above, but by reference.
+* [] The function body captures no variables.
+<!-- According to these two (and also MSDN), [] captures NO variables -->
+<!-- http://www.cprogramming.com/c++11/c++11-lambda-closures.html -->
+<!-- http://msdn.microsoft.com/en-us/library/dd293603.aspx -->
 
 ---
 
