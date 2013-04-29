@@ -1,7 +1,6 @@
 ## Lambda in C++ 11 is Cool
 
-* Stuff
-* More Stuff
+![Lambda](http://i.imgur.com/tO9ugC3.png)
 
 ---
 
