@@ -5,6 +5,7 @@ $endif$
 $if(colortheme)$
 \usecolortheme{$colortheme$}
 $endif$
+%\usetheme[backgroundimagefile=PullRequest,opacity=0.1]{diepen}
 \usepackage{amssymb,amsmath,mathpartir,tikz}
 \usetikzlibrary{arrows,automata,shapes,calc}
 \usepackage{ifxetex,ifluatex}
