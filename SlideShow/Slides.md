@@ -21,12 +21,14 @@
 ## Life Before Lambda in C++
 ![](Images/Venus.png)
 
+### Why?
 * Functors and similar operations cumbersome to use 
 * Overkill to declare and only use a function once [^1]
 
 ---
 
 ## Life Before Lambda Example
+### Utilizing for-each without Lambda Functions
 ~~~~~
 #include <algorithm>
 #include <vector>
@@ -49,8 +51,9 @@ void func(std::vector<int>& v) {
 
 ## Life Before Lambda Example
 
-One might be tempted to use this code:
+One might be tempted to use this code: [^1]
 
+### Locally declared:
 ~~~~~
 void func2(std::vector<int>& v) {
   struct {
@@ -61,8 +64,9 @@ void func2(std::vector<int>& v) {
   std::for_each(v.begin(), v.end(), f);
 }
 ~~~~~
+###
 
-However, f cannot be passed to a template function. [^1]
+However, our struct 'f' cannot be passed to a template function!
 
 ---
 
@@ -77,6 +81,7 @@ However, f cannot be passed to a template function. [^1]
 
 Here is the previous example, resolved cleanly and effectively[^1] thanks to the use of a lambda function.
 
+### For_each with Lambda
 ~~~
 void func3(std::vector<int>& v) {
   std::for_each(v.begin(), v.end(),
@@ -102,6 +107,7 @@ void func3(std::vector<int>& v) {
 
 > They can capture contexts, and they do so by name and then they can take those contexts elsewhere and execute.[^3]
 
+### Variable Capture Modes:
 
 * [=] Set default capture mode to capture by value.
 	
@@ -122,6 +128,7 @@ void func3(std::vector<int>& v) {
 
 ## Variable Capture Example
 
+### Capturing By-Value:
 ~~~
 #include <iostream>
 using namespace std;
@@ -132,10 +139,10 @@ int main() {
     cin >> input;
 
     auto lambda_isNeg = [input] {
-    return input < 0 ? "negative" : "positive"
+    	return input < 0 ? "negative" : "positive"
     }
-
-    cout << "you entered a " << lambda_isNeg << "number" << endl; 
+    cout << "you entered a " << lambda_isNeg;
+	cout << "number" << endl; 
     return 0;
 }
 ~~~
@@ -144,6 +151,7 @@ int main() {
 
 ## Lambda syntax
 
+### Constructing a Lambda function
 ~~~~~
 
 lambda_type my_func =
@@ -152,6 +160,7 @@ lambda_type my_func =
 
 ~~~~~
 
+###
 * The function name is not required, in the case of anonymous functions.
 * The capture specification field can be left empty if desired.
 * Parameters and return type are not necessary in most cases:
