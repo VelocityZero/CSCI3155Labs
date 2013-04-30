@@ -2,7 +2,9 @@
 
 ![](Images/HalfLife.png) 
 
-###Why Lamda?
+---
+
+###Why Lambda?
 
 * Locally Declare Functions
 * Pass functions as parameters (like functors)
@@ -21,6 +23,7 @@
 ## Life Before Lambda in C++
 ![](Images/Venus.png)
 
+
 ### Why?
 * Functors and similar operations cumbersome to use 
 * Overkill to declare and only use a function once [^1]
@@ -35,7 +38,7 @@
 
 namespace {
   struct f {
-	void operator()(int) {
+	void operator()(int val) {
 	  // do something
 	}
   };    
@@ -57,7 +60,7 @@ One might be tempted to use this code: [^1]
 ~~~~~
 void func2(std::vector<int>& v) {
   struct {
-    void operator()(int) {
+    void operator()(int val) {
        // do something
     }
   } f;
@@ -85,17 +88,21 @@ Here is the previous example, resolved cleanly and effectively[^1] thanks to the
 ~~~
 void func3(std::vector<int>& v) {
   std::for_each(v.begin(), v.end(),
-		[](int) { /* do something here*/ });
+		[](int val) { /* do something here*/ });
 }
 ~~~
 
 ---
 
-## The Community responds
+## The Community Responds 
 
 > Lambdas are syntactic sugar for functor classes ...  it aids in the readability of code (having your functor declared inline where it is used). - Terry Mahaffey  
 
 > [In my opinion], the most important thing about lambda's is it keeps related code close together. - R Samuel Klatchko  
+
+---
+
+## The Community Responds 
 
 > There's no performance benefit per se, but the need for lambda came as a consequence of the wide adoption of the STL and its design ideas. - Fabio Ceconello  
 
@@ -119,7 +126,7 @@ void func3(std::vector<int>& v) {
 
 	(In this case, by value)
 * [&variable_name] Same as above, but by reference.
-* [] The function body captures no variables.
+* \][] The function body captures no variables.
 <!-- According to these two (and also MSDN), [] captures NO variables -->
 <!-- http://www.cprogramming.com/c++11/c++11-lambda-closures.html -->
 <!-- http://msdn.microsoft.com/en-us/library/dd293603.aspx -->
