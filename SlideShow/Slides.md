@@ -4,6 +4,12 @@
 
 ---
 
+## C++ 11
+
+How many people have used it?
+
+---
+
 ###Why Lambda?
 
 * Locally Declare Functions
@@ -203,3 +209,9 @@ int main()
 
 [^4]: > ~Alex\ Allain~					
 	~http://www.cprogramming.com/c++11/c++11-lambda-closures.html~
+	
+---
+
+## In Conclusion
+
+Lambda's provide a useful shortcut for developers to write a concise and consistent code.
