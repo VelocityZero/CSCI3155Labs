@@ -126,7 +126,7 @@ void func3(std::vector<int>& v) {
 
 	(In this case, by value)
 * [&variable_name] Same as above, but by reference.
-* \][] The function body captures no variables.
+* \[ \] The function body captures no variables.
 <!-- According to these two (and also MSDN), [] captures NO variables -->
 <!-- http://www.cprogramming.com/c++11/c++11-lambda-closures.html -->
 <!-- http://msdn.microsoft.com/en-us/library/dd293603.aspx -->
