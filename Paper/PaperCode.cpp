@@ -15,7 +15,7 @@ enum Type
 };
 
 
-void plusplus(int x) {cout << x + x;} 
+int plusplus(int x) {return x + x;} 
 
 vector<int> fibArith(int fibNumb, char symbol, int y){
 
@@ -128,12 +128,12 @@ int main(){
 
     auto pretty = [] (int val) -> void {cout << val << " ";}; 
 
-    vector<int> original = fibArith(5, ' ', 0);
-    vector<int> vPlus    = fibArith(5, '+', 3);
-    vector<int> vMinus   = fibArith(5, '-', 3);
-    vector<int> vMulti   = fibArith(5, '*', 3);
-    vector<int> vDiv     = fibArith(5, '/', 3);
-    vector<int> vMod     = fibArith(5, '%', 3);
+    vector<int> original = fibArith(10, ' ', 0);
+    vector<int> vPlus    = fibArith(10, '+', 3);
+    vector<int> vMinus   = fibArith(10, '-', 3);
+    vector<int> vMulti   = fibArith(10, '*', 3);
+    vector<int> vDiv     = fibArith(10, '/', 3);
+    vector<int> vMod     = fibArith(10, '%', 3);
 
 
     cout << "\noriginal: ";
@@ -179,22 +179,35 @@ int main(){
 
 // 
 
-    int ary [5][5];
+    int ary [3][3][3];
 
     int numb10 = 0;
-    for (int i = 0; i < 5; ++i)
+    for (int i = 0; i < 3; ++i)
     {
-        for (int j = 0; j < 5; ++j)
+        for (int j = 0; j < 3; ++j)
         {
-            ary[i][j] = numb10++;
+            for (int k = 0; k < 3; ++k)
+            {
+                ary[i][j][k] = numb10++;
+            }
         }
     }
 
     cout << endl << endl;
     cout << "you no longer have to worry about loop unrolling and traversing 2d " << endl
          <<  "arrays in the proper order. for_each can do it all easily with lambdas!\n";
-    for_each(&ary[0][0], &ary[5][0], [] (int val) {cout << val << " ";});
+    for_each(&ary[0][0][0], &ary[3][0][0], [] (int val) {cout << val << " ";});
 
+
+
+    auto fun6 = [&] (int num) -> int {return fun2(num);};
+    
+    cout << endl << "-------------" << endl;
+    //auto fun7 = fun6();
+    //cout << (fun6());
+    
+    cout << fun6(1);
+   
     return 0;
 }
 
