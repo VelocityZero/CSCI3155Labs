@@ -95,7 +95,9 @@ Quick and easy function inlining!
 
 ## Life With Lambda
 
-> Use of lambdas: For ages, people have complained about having to write functions or (better) function objects for use as operations, such as Cmp<T> above, for standard library (and other) algorithms. This was especially painful to do if you wrote large functions (don't) because in C++98 you could not define a local function object to use as an argument; now you can. However, lambdas allows us to define operations ``inline:'' - Bjarne Stroustrup [^2]
+<!-- For ages, people have complained about having to write functions or (better) function objects for use as operations, such as Cmp<T> above, for standard library (and other) algorithms. This was especially painful to do if you wrote large functions (don't) because in C++98 you could not define a local function object to use as an argument; now you can. However, lambdas allows us to define operations ``inline:'' - Bjarne Stroustrup [^2] -->
+
+For ages, people have complained about having to write... function objects for use as operations... This was especially painful to do if you wrote large functions... because you could not define a local function object... [^2]
 
 
 ---
@@ -105,9 +107,10 @@ Quick and easy function inlining!
 ### Constructing a Lambda function
 ~~~~~
 
-lambda_type my_func =
-	[capture_specification] (parameters) -> 
-		return_type {function_body}
+lambda_type a_func =
+	[capture_specs] (params) -> ret_type {
+		/* function_body */
+	}
 
 ~~~~~
 
@@ -237,7 +240,8 @@ int main() {
 [^1]: > ~Stack\ Overflow\ Moderator,\ Flexo~
 	~http://stackoverflow.com/questions/7627098/what-is-a-lambda-expression-in-c11~
 
-[^2]: > ~http://www.stroustrup.com/C++11FAQ.html#lambda~
+[^2]: > ~Bjarne\ Stroustrup~					
+	~http://www.stroustrup.com/C++11FAQ.html#lambda~
 
 [^3]: > ~Cubbi~
 	~http://stackoverflow.com/questions/3018626/what-is-the-motivation-behind-c11-lambda-expressions~
