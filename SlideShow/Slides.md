@@ -6,7 +6,7 @@
 
 ## C++ 11
 
-Have your used it?
+Have your used it?  
 ![](Images/pointing_finger.png)
 
 
