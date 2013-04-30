@@ -6,7 +6,9 @@
 
 ## C++ 11
 
-How many people have used it?
+Have your used it?
+![](Images/pointing_finger.png)
+
 
 ---
 
