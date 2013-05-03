@@ -1,14 +1,14 @@
 <img src="http://i.imgur.com/tO9ugC3.png"></img>
-## Table of Contents  
+## <a name="Table"></a> Table of Contents  
 * <a href="#summary">Lambda Functions</a>
-* <a href="#basic">Basic Lambda syntax</a>
+	* <a href="#basic">Basic Lambda syntax</a>
 * <a href="#vCapture">Variable Capture</a>
-  * <a href="#Captures_How">How Captures Work</a>
+	* <a href="#Captures_How">How Captures Work</a>
 	* <a href="#Captures_ProCon">Pros and Cons to [&]</a>
 * <a href="#STL">Using lambda with STL</a>
 * <a href="#usingLambda">Putting it all together, Using lambda functions!</a>
 	* <a href="#usingLambda_Nest">Nesting Lambdas</a>
-	* <a name="#usingLambda_HighOrder">Lambda in a Higher-Order</a>
+	* <a href="#usingLambda_HighOrder">Lambda in a Higher-Order</a>
 
 
 
@@ -21,7 +21,7 @@ Lambda functions are a very useful tool when attempting to create higher order f
 
 
 
-## <a name="basic"></a>Basic Lambda syntax  
+#### <a name="basic"></a>Basic Lambda syntax  
 Lambda functions have a rather unique syntax, which at first glance can be confused with an array declaration with parameters. This is the general form for writing lambda functions:
 <a name="declaration"></a>
 
@@ -51,7 +51,7 @@ int main(){
 	return 0;
 }
 ~~~~~	
-<a href="#TOP">↑ Top</a>
+<a href="#Table">↑ Top</a>
 
 ## <a name="vCapture"></a>Variable Capture. 
 Variable capture is probably the best things about using lambda functions. Lambda functions have the ability to reference, use and even change variables and declared outside of the scope of a lambda function. This is all done within the capture specification field `[capture_specification],`defined in the <a href="#declaration">lambda declaration</a>
@@ -83,9 +83,8 @@ The above example show how you can capture a variable using a lambda function. I
 * `[variable_name]` Like the above example demonstrates, individual variables may be captured using their name.
 * `[]` Is the default capture method that will capture none of the variables
 
-	The example below demonstrates what you can capture with each method and the ability to mix and match with the
-	use of commas to separate different capture types.
-	~~~~~~
+The example below demonstrates what you can capture with each method and the ability to mix and match with the use of commas to separate different capture types.
+~~~~~~
 	... 
 	int x = 5;
 	int double pi = 3.14;
@@ -106,16 +105,16 @@ The above example show how you can capture a variable using a lambda function. I
 	[this] 		/* you can even capture the this pointer
 				if you have not already used [=] or [&] */ 
 	...
-	~~~~~~
+~~~~~~
 	
 ##### <a name="Captures_How"></a> How Captures Works
-A lambda variable capture works in a similar manner as that of a functor. The way that lambdas are implemented is by creating a small class that overloads the operator`()`, this allows lambda to act like a function. The lambda function then becomes an instance of this class and when it is constructed it takes in all surrounding variables within its environment that are passed into the capture specification field and stores them as member variables. ___(this may need to me moved or reworded!)___
+A lambda variable capture works in a similar manner as that of a functor. The way that lambdas are implemented is by creating a small class that overloads the operator`()`, this allows lambda to act like a function. The lambda function then becomes an instance of this class and when it is constructed it takes in all surrounding variables within its environment that are passed into the capture specification field and stores them as member variables.  
 
 ##### <a name="Captures_ProCon"></a> Tread carefully, the pros and cons to `[&]`
 While all of this seems great you should know when it is okay to capture by different types. For example, if you have a lambda function as a function parameter. Lambda functions which capture values by reference have the ability to change the captured references and have the changes affect all of the same references. Passing by reference will most likely be the fastest (particularly for large objects), but you must watch out for side-effects inside the lambda functions.
 
 If a lambda function captures values by reference, the reference will not be valid after the function returns. However, if you capture by reference you have to ability to modify and change the data.  
-<a href="#TOP">↑ Top</a>
+<a href="#Table">↑ Top</a>
 
 ## <a name="STL"></a>Using lambda with the STL  
 To use STLs like algorithms was a tedious task before lambda functions. Lets look at `for_each` in the algorithms STL as an example:
@@ -134,7 +133,7 @@ for (auto itr = v.begin(), end = v.end(); itr != end; ++itr){
 for_each(v.begin(), v.end(), [] (int val) {cout << val}); 	
 ~~~~~~
 This implementation takes less lines and a lot easier to read and write. Not only that but the for_each implementation can perform better than the for expression because it can utilize loop unrolling.  
-<a href="#TOP">↑ Top</a>
+<a href="#Table">↑ Top</a>
 
 ## <a name="usingLambda"></a>Putting it all together, Using lambda functions!
 In  the examples given so far we have given the lambda function a name. This is possible because the lambda expression is typed, which also allows us to assign a lambda to a function object. 
@@ -217,6 +216,8 @@ auto fun2 =  fun1(2);			// call the lambda function
 cout << "fun2 is: " << fun3;	// outputs 11
 ...
 		~~~~~~
-<a href="#TOP">↑ Top</a>
+		[source](http://msdn.microsoft.com/en-us/library/dd293599.aspx)  
+  
+<a href="#Table">↑ Top</a>
 
-[source](http://msdn.microsoft.com/en-us/library/dd293599.aspx)  
+
